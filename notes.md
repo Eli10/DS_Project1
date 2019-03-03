@@ -25,3 +25,31 @@ User
 # Databases
 - MongoDB
 - Neo4j
+
+
+
+# Queries
+
+db.getCollection('users').find({$or: [{"Organization.OrgType": "University"}, {"Organization.Distances.Government": {$lte: 10}  }, {"Organization.Distances.Company": {$lte: 10}  } ]})
+
+----------
+
+var my_skills = ["Python", "Go"]
+
+db.getCollection('users').find({$or: [{"Organization.OrgType": "University"}, {"Organization.Distances.Government": {$lte: 10}  }, {"Organization.Distances.Company": {$lte: 10}  } ]}).forEach(function(user) {
+    
+    var user_skills = user.Skills;
+    //print(user_skills);
+    var total_weight = 0;
+    //var user_skill_list = Object.keys(user.Skills)
+    my_skills.forEach(function(skill) {
+            if( skill in user_skills) {
+                    total_weight = total_weight + user_skills[skill]
+            }
+    });
+    //print(total_weight)
+    //print(user_skill_list)
+    
+    print( user.FirstName, user.Organization.OrgName, total_weight);
+    
+});
