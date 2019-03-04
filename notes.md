@@ -5,15 +5,33 @@
 3) If yes to Question 2, how so? Latitude and Longitude?
 
 
-# Data Models
+# Mongo Data Models
 
 User
 - First Name (string)
 - Last Name (string)
-- Organization (string)
-- Distance from Organization (integer)
+- Organization (object)
 - Skills (list of dictionaries (skill_name: weight))
 - Project (string)
+
+# Neo4j Data Models
+
+User
+- Nane
+- Current Project
+
+Organization
+- name
+- type
+
+
+Skil
+- name
+
+Relations
+- User WORKS_FOR Organization
+- Orgnization DISTANCE Organization
+- User SKILLED_In Skill (level property)
 
 
 # Menu Options
@@ -53,3 +71,7 @@ db.getCollection('users').find({$or: [{"Organization.OrgType": "University"}, {"
     print( user.FirstName, user.Organization.OrgName, total_weight);
     
 });
+
+
+
+db.getCollection('users').find({"CurrentProject": "Back-end"}, {"FirstName": 1, "LastName": 1 ,"Skills": 1})
