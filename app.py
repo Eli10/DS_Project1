@@ -21,7 +21,6 @@ def parse_choice(choice):
 
 
 while(True):
-    os.system('clear')
     main_menu()
     choice = input("Choice: ")
     parse_choice(choice)
