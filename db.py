@@ -1,10 +1,10 @@
 from pymongo import MongoClient
-
+from py2neo import Graph
 
 class MongoDB():
 
     def __init__(self):
-        self.client = MongoClient('localhost', 27017)
+        self.client = MongoClient('127.0.0.1', 27017)
         self.db = self.client['collaboration_net_db']
         self.user_collection = self.db['users']
 
@@ -88,7 +88,7 @@ class MongoDB():
     #         }
     #     ] )
 
-    
+
 
     def setupv2(self):
         users = self.user_collection
@@ -103,7 +103,7 @@ class MongoDB():
                     "Distances": [
                         {"Government": 7},
                         {"University": 10}
-                    ]    
+                    ]
                 },
                 "CurrentProject": "Back-end",
                 "Skills": [
@@ -200,6 +200,3 @@ class MongoDB():
                 ]
             }
         ] )
-
-
-    
