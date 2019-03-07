@@ -4,7 +4,7 @@ import pandas as pd
 class NeoDB():
 
     def __init__(self):
-        self.graph = Graph(bolt=True, host="127.0.0.1", user="neo4j", password="12345")
+        self.graph = Graph(host="127.0.0.1", user="neo4j",bolt=True, password="12345")
         self.setup_node_list = [
             "CREATE (u1:User {name:'Eli', currentProject: 'Backend'})",
             "CREATE (u2:User {name:'Bob', currentProject: 'Backend'})",
@@ -93,6 +93,13 @@ class NeoDB():
             self.graph.run(s)
         for r in self.relationship_list:
             self.graph.run(r)
+
+    def get_all_users(self):
+        query_string = """MATCH (u:User)-[]->(o:Organization)
+                        RETURN u.name as Name, u.currentProject as Project,
+                        o.name as OrgName, o.type as OrgType"""
+        return pd.DataFrame(self.graph.run(query_string).data()).to_string()
+
 
     def query_for_answer_1(self, username, company_name):
         query_string = """
