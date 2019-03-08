@@ -80,6 +80,6 @@ db.getCollection('users').find({"CurrentProject": "Back-end"}, {"FirstName": 1, 
 # Installation
 
 Run the Makefile or the following commands
-pip3 install pymongo
-pip3 install pandas
-pip3 install neo4j
+- pip3 install pymongo
+- pip3 install pandas
+- pip3 install neo4j
