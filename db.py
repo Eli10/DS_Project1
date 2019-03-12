@@ -117,6 +117,14 @@ class MongoDB():
                             {"MySQL": 3},
                             {"Critical Thinking": 4},
                             {"Java": 2}
+                ],
+                "Interests": [
+                    {"Weightlifting": 4},
+                    {"Martial Arts": 6},
+                    {"Videogames": 7},
+                    {"Basketball": 2},
+                    {"Traveling": 9}
+
                 ]
             },
             {
@@ -136,6 +144,14 @@ class MongoDB():
                             {"MySQL": 4},
                             {"Time Management": 2},
                             {"C++": 5}
+                ],
+                "Interests": [
+                    {"Kart racing": 5},
+                    {"Hiking": 3},
+                    {"Bowling": 6},
+                    {"Swimming": 8},
+                    {"Traveling": 4}
+
                 ]
             },
             {
@@ -155,6 +171,14 @@ class MongoDB():
                             {"MySQL": 5},
                             {"Communication": 4},
                             {"Software Development": 3}
+                ],
+                "Interests": [
+                    {"Hiking": 2},
+                    {"Ultimate Frisbee": 8},
+                    {"Martial Arts": 7},
+                    {"Swimming": 4},
+                    {"Bowling": 5}
+
                 ]
             },
             {
@@ -174,6 +198,14 @@ class MongoDB():
                             {"MySQL": 2},
                             {"Communication": 4},
                             {"Software Development": 5}
+                ],
+                "Interests": [
+                    {"Kart racing": 6},
+                    {"Ultimate Frisbee": 4},
+                    {"Basketball": 9},
+                    {"Weightlifting": 6},
+                    {"Videogames": 7}
+
                 ]
             },
             {
@@ -193,6 +225,14 @@ class MongoDB():
                             {"MySQL": 3},
                             {"HTML": 1},
                             {"Accounting": 4}
+                ],
+                "Interests": [
+                    {"Bowling": 5},
+                    {"Traveling": 5},
+                    {"Swimming": 6},
+                    {"Volleyball": 8},
+                    {"Cycling": 6}
+
                 ]
             },
             {
@@ -212,6 +252,14 @@ class MongoDB():
                             {"MySQL": 2},
                             {"C++": 3},
                             {"Copywriting": 1}
+                ],
+                "Interests": [
+                    {"Gardening": 9},
+                    {"Volleyball": 6},
+                    {"Swimming": 4},
+                    {"Kart racing": 7},
+                    {"Cycling": 4}
+
                 ]
             },
             {
@@ -231,6 +279,14 @@ class MongoDB():
                             {"Foreign Languages": 2},
                             {"MySQL": 5},
                             {"Linux": 3}
+                ],
+                "Interests": [
+                    {"Weightlifting": 4},
+                    {"Ultimate Frisbee": 6},
+                    {"Martial Arts": 7},
+                    {"Hiking": 2},
+                    {"Basketball": 9}
+
                 ]
             }
 
