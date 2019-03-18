@@ -4,7 +4,7 @@ import pandas as pd
 class NeoDB():
 
     def __init__(self):
-        self.graph = Graph(host="127.0.0.1", user="neo4j",bolt=True, password="12345")
+        self.graph = Graph(host="127.0.0.1", user="neo4j",bolt=True, password="1234")
         self.setup_node_list = [
             "CREATE (u1:User {name:'Eli', currentProject: 'Backend'})",
             "CREATE (u2:User {name:'Bob', currentProject: 'Backend'})",
