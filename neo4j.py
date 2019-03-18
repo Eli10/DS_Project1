@@ -13,6 +13,7 @@ class NeoDB():
             "CREATE (u3:User {name:'Ruby', currentProject: 'Frontend'})",
             "CREATE (u6:User {name:'Amy', currentProject: 'Data Discovery'})",
             "CREATE (u7:User {name:'Paul', currentProject: 'Data Discovery'})",
+            "CREATE (u9:User {name:'Navid', currentProject: 'Backend'})",
             "CREATE (o1:Organization {name: 'Hunter College', type:'University'})",
             "CREATE (o2:Organization {name: 'SSC', type:'Company'})",
             "CREATE (o3:Organization {name: 'NSA', type:'Government'})",
@@ -36,6 +37,7 @@ class NeoDB():
             "CREATE (s17:Skill {name:'Information Security'})",
             "CREATE (s18:Skill {name:'Data Modeling'})",
             "CREATE (s19:Skill {name:'Networking'})",
+            "CREATE (s22:Skill {name:'McAfee'})",
             "CREATE (s20:Skill {name:'Javascript'})",
             "CREATE (s21:Skill {name:'HTML'})"]
         self.relationship_list = [
@@ -74,8 +76,14 @@ class NeoDB():
             "MATCH (a:User {name:'Paul'}),(b:Skill {name:'Foreign Languages'}) MERGE (a)-[r:SKILLED_IN {level: 2}]->(b)",
             "MATCH (a:User {name:'Paul'}),(b:Skill {name:'MySQL'}) MERGE (a)-[r:SKILLED_IN {level: 5}]->(b)",
             "MATCH (a:User {name:'Paul'}),(b:Skill {name:'Linux'}) MERGE (a)-[r:SKILLED_IN {level: 3}]->(b)",
+            
+            "MATCH (a:User {name:'Navid'}),(b:Skill {name:'Python'}) MERGE (a)-[r:SKILLED_IN {level: 5}]->(b)",
+            "MATCH (a:User {name:'Navid'}),(b:Skill {name:'Linux'}) MERGE (a)-[r:SKILLED_IN {level: 4}]->(b)",
+            "MATCH (a:User {name:'Navid'}),(b:Skill {name:'McAfee'}) MERGE (a)-[r:SKILLED_IN {level: 5}]->(b)",
+            "MATCH (a:User {name:'Navid'}),(b:Skill {name:'Critical Thinking'}) MERGE (a)-[r:SKILLED_IN {level: 4}]->(b)",
 
             "MATCH (a:User {name:'Eli'}), (b:Organization {name:'SSC'}) MERGE (a)-[r:WORKS_FOR]->(b)",
+            "MATCH (a:User {name:'Navid'}),(b:Organization {name:'Hunter College'}) MERGE (a)-[r:WORKS_FOR]->(b)",
             "MATCH (a:User {name:'Bob'}),(b:Organization {name:'SSC'}) MERGE (a)-[r:WORKS_FOR]->(b)",
             "MATCH (a:User {name:'Ruby'}),(b:Organization {name:'SSC'}) MERGE (a)-[r:WORKS_FOR]->(b)",
             "MATCH (a:User {name:'Sandy'}),(b:Organization {name:'Hunter College'}) MERGE (a)-[r:WORKS_FOR]->(b)",
