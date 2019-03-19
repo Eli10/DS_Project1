@@ -28,30 +28,31 @@ class Menu():
 
 
     def parse_choice(self, choice):
-        if(choice=="1"):
+        if(choice=="1"): #todo: show all the user
             self.neo_db.setup()
             self.mongo_db.setupv2()
             input("Press Enter to continue...")
         if(choice=="2"):
-            self.get_user_list()
+            self.get_user_list() 
         if(choice=="3"):
-            print(self.mongo_db.return_users())
+            print(self.mongo_db.return_users()) #todo: return each user once
             user = input("\nSelect User you would like to find \ntrusted colleagues-of-colleagues \nwith one or more interests: ")
             print(self.mongo_db.answer_for_question2(user))
             input("Press Enter to continue...")
             pass
         if(choice=="4"):
-            query = input("Write Query: ")
+            query = input("Write Query: ") #todo: Query for user info Neo4j ... Working -Ns
             self.query_history.append(query)
             pass
         if(choice=="5"):
-            query = input("Write Query: ")
+            query = input("Write Query: ") #todo: Query for user info MongoDB ... Working -Ns
             self.query_history.append(query)
             pass
         if(choice=="6"):
             print(self.query_history)
             pass
         if(choice=="7"):
+            print("Import CSV file ...") #todo: Working -Ns
             pass
         if(choice=="8"):
             quit()
