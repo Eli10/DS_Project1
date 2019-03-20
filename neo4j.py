@@ -40,20 +40,20 @@ class NeoDB():
             "CREATE (s22:Skill {Skill:'McAfee'})",
             "CREATE (s20:Skill {Skill:'Javascript'})",
             "CREATE (s21:Skill {Skill:'HTML'})",
-            "CREATE (i1:Interest {name:'Weightlifting'})",
-            "CREATE (i2:Interest {name:'Bowling'})",
-            "CREATE (i3:Interest {name:'Swimming'})",
-            "CREATE (i4:Interest {name:'Basketball'})",
-            "CREATE (i5:Interest {name:'Ultimate Frisbee'})",
-            "CREATE (i6:Interest {name:'Kart racing'})",
-            "CREATE (i7:Interest {name:'Traveling'})",
-            "CREATE (i8:Interest {name:'Martial Arts'})",
-            "CREATE (i9:Interest {name:'Videogames'})",
-            "CREATE (i10:Interest {name:'Hiking'})",
-            "CREATE (i11:Interest {name:'Cycling'})",
-            "CREATE (i12:Interest {name:'Volleyball'})",
-            "CREATE (i13:Interest {name:'Boxing'})",
-            "CREATE (i14:Interest {name:'Gardening'})"
+            "CREATE (i1:Interest {Interest:'Weightlifting'})",
+            "CREATE (i2:Interest {Interest:'Bowling'})",
+            "CREATE (i3:Interest {Interest:'Swimming'})",
+            "CREATE (i4:Interest {Interest:'Basketball'})",
+            "CREATE (i5:Interest {Interest:'Ultimate Frisbee'})",
+            "CREATE (i6:Interest {Interest:'Kart racing'})",
+            "CREATE (i7:Interest {Interest:'Traveling'})",
+            "CREATE (i8:Interest {Interest:'Martial Arts'})",
+            "CREATE (i9:Interest {Interest:'Videogames'})",
+            "CREATE (i10:Interest {Interest:'Hiking'})",
+            "CREATE (i11:Interest {Interest:'Cycling'})",
+            "CREATE (i12:Interest {Interest:'Volleyball'})",
+            "CREATE (i13:Interest {Interest:'Boxing'})",
+            "CREATE (i14:Interest {Interest:'Gardening'})"
 
             ]
         self.relationship_list = [
@@ -110,41 +110,41 @@ class NeoDB():
             "MATCH (a:Organization {organization:'SSC'}),(b:Organization {organization:'Hunter College'}) MERGE (a)-[r:DISTANCE {miles: 8}]->(b)",
             "MATCH (a:Organization {organization:'Hunter College'}),(b:Organization {organization:'NSA'}) MERGE (a)-[r:DISTANCE {miles: 20}]->(b)",
 
-            "MATCH (a:User {First_Name:'Eli'}),(i:Interest {name:'Weightlifting'}) MERGE (a)-[r:INTERESTED_IN {level: 4}]->(i)",
-            "MATCH (a:User {First_Name:'Eli'}),(i:Interest {name:'Martial Arts'}) MERGE (a)-[r:INTERESTED_IN {level: 6}]->(i)",
-            "MATCH (a:User {First_Name:'Eli'}),(i:Interest {name:'Videogames'}) MERGE (a)-[r:INTERESTED_IN {level: 7}]->(i)",
-            "MATCH (a:User {First_Name:'Eli'}),(i:Interest {name:'Basketball'}) MERGE (a)-[r:INTERESTED_IN {level: 2}]->(i)",
-            "MATCH (a:User {First_Name:'Eli'}),(i:Interest {name:'Traveling'}) MERGE (a)-[r:INTERESTED_IN {level: 9}]->(i)",
-            "MATCH (a:User {First_Name:'Bob'}),(i:Interest {name:'Kart racing'}) MERGE (a)-[r:INTERESTED_IN {level: 5}]->(i)",
-            "MATCH (a:User {First_Name:'Bob'}),(i:Interest {name:'Hiking'}) MERGE (a)-[r:INTERESTED_IN {level: 3}]->(i)",
-            "MATCH (a:User {First_Name:'Bob'}),(i:Interest {name:'Bowling'}) MERGE (a)-[r:INTERESTED_IN {level: 6}]->(i)",
-            "MATCH (a:User {First_Name:'Bob'}),(i:Interest {name:'Swimming'}) MERGE (a)-[r:INTERESTED_IN {level: 8}]->(i)",
-            "MATCH (a:User {First_Name:'Bob'}),(i:Interest {name:'Traveling'}) MERGE (a)-[r:INTERESTED_IN {level: 4}]->(i)",
-            "MATCH (a:User {First_Name:'Sandy'}),(i:Interest {name:'Hiking'}) MERGE (a)-[r:INTERESTED_IN {level: 2}]->(i)",
-            "MATCH (a:User {First_Name:'Sandy'}),(i:Interest {name:'Ultimate Frisbee'}) MERGE (a)-[r:INTERESTED_IN {level: 8}]->(i)",
-            "MATCH (a:User {First_Name:'Sandy'}),(i:Interest {name:'Martial Arts'}) MERGE (a)-[r:INTERESTED_IN {level: 7}]->(i)",
-            "MATCH (a:User {First_Name:'Sandy'}),(i:Interest {name:'Swimming'}) MERGE (a)-[r:INTERESTED_IN {level: 4}]->(i)",
-            "MATCH (a:User {First_Name:'Sandy'}),(i:Interest {name:'Bowling'}) MERGE (a)-[r:INTERESTED_IN {level: 5}]->(i)",
-            "MATCH (a:User {First_Name:'Jake'}),(i:Interest {name:'Kart racing'}) MERGE (a)-[r:INTERESTED_IN {level: 6}]->(i)",
-            "MATCH (a:User {First_Name:'Jake'}),(i:Interest {name:'Ultimate Frisbee'}) MERGE (a)-[r:INTERESTED_IN {level: 4}]->(i)",
-            "MATCH (a:User {First_Name:'Jake'}),(i:Interest {name:'Basketball'}) MERGE (a)-[r:INTERESTED_IN {level: 9}]->(i)",
-            "MATCH (a:User {First_Name:'Jake'}),(i:Interest {name:'Weightlifting'}) MERGE (a)-[r:INTERESTED_IN {level: 6}]->(i)",
-            "MATCH (a:User {First_Name:'Jake'}),(i:Interest {name:'Videogames'}) MERGE (a)-[r:INTERESTED_IN {level: 7}]->(i)",
-            "MATCH (a:User {First_Name:'Ruby'}),(i:Interest {name:'Bowling'}) MERGE (a)-[r:INTERESTED_IN {level: 5}]->(i)",
-            "MATCH (a:User {First_Name:'Ruby'}),(i:Interest {name:'Traveling'}) MERGE (a)-[r:INTERESTED_IN {level: 5}]->(i)",
-            "MATCH (a:User {First_Name:'Ruby'}),(i:Interest {name:'Swimming'}) MERGE (a)-[r:INTERESTED_IN {level: 6}]->(i)",
-            "MATCH (a:User {First_Name:'Ruby'}),(i:Interest {name:'Volleyball'}) MERGE (a)-[r:INTERESTED_IN {level: 8}]->(i)",
-            "MATCH (a:User {First_Name:'Ruby'}),(i:Interest {name:'Cycling'}) MERGE (a)-[r:INTERESTED_IN {level: 6}]->(i)",
-            "MATCH (a:User {First_Name:'Amy'}),(i:Interest {name:'Gardening'}) MERGE (a)-[r:INTERESTED_IN {level: 9}]->(i)",
-            "MATCH (a:User {First_Name:'Amy'}),(i:Interest {name:'Volleyball'}) MERGE (a)-[r:INTERESTED_IN {level: 6}]->(i)",
-            "MATCH (a:User {First_Name:'Amy'}),(i:Interest {name:'Swimming'}) MERGE (a)-[r:INTERESTED_IN {level: 4}]->(i)",
-            "MATCH (a:User {First_Name:'Amy'}),(i:Interest {name:'Kart racing'}) MERGE (a)-[r:INTERESTED_IN {level: 7}]->(i)",
-            "MATCH (a:User {First_Name:'Amy'}),(i:Interest {name:'Cycling'}) MERGE (a)-[r:INTERESTED_IN {level: 4}]->(i)",
-            "MATCH (a:User {First_Name:'Paul'}),(i:Interest {name:'Weightlifting'}) MERGE (a)-[r:INTERESTED_IN {level: 4}]->(i)",
-            "MATCH (a:User {First_Name:'Paul'}),(i:Interest {name:'Ultimate Frisbee'}) MERGE (a)-[r:INTERESTED_IN {level: 6}]->(i)",
-            "MATCH (a:User {First_Name:'Paul'}),(i:Interest {name:'Martial Arts'}) MERGE (a)-[r:INTERESTED_IN {level: 7}]->(i)",
-            "MATCH (a:User {First_Name:'Paul'}),(i:Interest {name:'Hiking'}) MERGE (a)-[r:INTERESTED_IN {level: 2}]->(i)",
-            "MATCH (a:User {First_Name:'Paul'}),(i:Interest {name:'Basketball'}) MERGE (a)-[r:INTERESTED_IN {level: 9}]->(i)"
+            "MATCH (a:User {First_Name:'Eli'}),(i:Interest {Interest:'Weightlifting'}) MERGE (a)-[r:INTERESTED_IN {Interest_Level: 4}]->(i)",
+            "MATCH (a:User {First_Name:'Eli'}),(i:Interest {Interest:'Martial Arts'}) MERGE (a)-[r:INTERESTED_IN {Interest_Level: 6}]->(i)",
+            "MATCH (a:User {First_Name:'Eli'}),(i:Interest {Interest:'Videogames'}) MERGE (a)-[r:INTERESTED_IN {Interest_Level: 7}]->(i)",
+            "MATCH (a:User {First_Name:'Eli'}),(i:Interest {Interest:'Basketball'}) MERGE (a)-[r:INTERESTED_IN {Interest_Level: 2}]->(i)",
+            "MATCH (a:User {First_Name:'Eli'}),(i:Interest {Interest:'Traveling'}) MERGE (a)-[r:INTERESTED_IN {Interest_Level: 9}]->(i)",
+            "MATCH (a:User {First_Name:'Bob'}),(i:Interest {Interest:'Kart racing'}) MERGE (a)-[r:INTERESTED_IN {Interest_Level: 5}]->(i)",
+            "MATCH (a:User {First_Name:'Bob'}),(i:Interest {Interest:'Hiking'}) MERGE (a)-[r:INTERESTED_IN {Interest_Level: 3}]->(i)",
+            "MATCH (a:User {First_Name:'Bob'}),(i:Interest {Interest:'Bowling'}) MERGE (a)-[r:INTERESTED_IN {Interest_Level: 6}]->(i)",
+            "MATCH (a:User {First_Name:'Bob'}),(i:Interest {Interest:'Swimming'}) MERGE (a)-[r:INTERESTED_IN {Interest_Level: 8}]->(i)",
+            "MATCH (a:User {First_Name:'Bob'}),(i:Interest {Interest:'Traveling'}) MERGE (a)-[r:INTERESTED_IN {Interest_Level: 4}]->(i)",
+            "MATCH (a:User {First_Name:'Sandy'}),(i:Interest {Interest:'Hiking'}) MERGE (a)-[r:INTERESTED_IN {Interest_Level: 2}]->(i)",
+            "MATCH (a:User {First_Name:'Sandy'}),(i:Interest {Interest:'Ultimate Frisbee'}) MERGE (a)-[r:INTERESTED_IN {Interest_Level: 8}]->(i)",
+            "MATCH (a:User {First_Name:'Sandy'}),(i:Interest {Interest:'Martial Arts'}) MERGE (a)-[r:INTERESTED_IN {Interest_Level: 7}]->(i)",
+            "MATCH (a:User {First_Name:'Sandy'}),(i:Interest {Interest:'Swimming'}) MERGE (a)-[r:INTERESTED_IN {Interest_Level: 4}]->(i)",
+            "MATCH (a:User {First_Name:'Sandy'}),(i:Interest {Interest:'Bowling'}) MERGE (a)-[r:INTERESTED_IN {Interest_Level: 5}]->(i)",
+            "MATCH (a:User {First_Name:'Jake'}),(i:Interest {Interest:'Kart racing'}) MERGE (a)-[r:INTERESTED_IN {Interest_Level: 6}]->(i)",
+            "MATCH (a:User {First_Name:'Jake'}),(i:Interest {Interest:'Ultimate Frisbee'}) MERGE (a)-[r:INTERESTED_IN {Interest_Level: 4}]->(i)",
+            "MATCH (a:User {First_Name:'Jake'}),(i:Interest {Interest:'Basketball'}) MERGE (a)-[r:INTERESTED_IN {Interest_Level: 9}]->(i)",
+            "MATCH (a:User {First_Name:'Jake'}),(i:Interest {Interest:'Weightlifting'}) MERGE (a)-[r:INTERESTED_IN {Interest_Level: 6}]->(i)",
+            "MATCH (a:User {First_Name:'Jake'}),(i:Interest {Interest:'Videogames'}) MERGE (a)-[r:INTERESTED_IN {Interest_Level: 7}]->(i)",
+            "MATCH (a:User {First_Name:'Ruby'}),(i:Interest {Interest:'Bowling'}) MERGE (a)-[r:INTERESTED_IN {Interest_Level: 5}]->(i)",
+            "MATCH (a:User {First_Name:'Ruby'}),(i:Interest {Interest:'Traveling'}) MERGE (a)-[r:INTERESTED_IN {Interest_Level: 5}]->(i)",
+            "MATCH (a:User {First_Name:'Ruby'}),(i:Interest {Interest:'Swimming'}) MERGE (a)-[r:INTERESTED_IN {Interest_Level: 6}]->(i)",
+            "MATCH (a:User {First_Name:'Ruby'}),(i:Interest {Interest:'Volleyball'}) MERGE (a)-[r:INTERESTED_IN {Interest_Level: 8}]->(i)",
+            "MATCH (a:User {First_Name:'Ruby'}),(i:Interest {Interest:'Cycling'}) MERGE (a)-[r:INTERESTED_IN {Interest_Level: 6}]->(i)",
+            "MATCH (a:User {First_Name:'Amy'}),(i:Interest {Interest:'Gardening'}) MERGE (a)-[r:INTERESTED_IN {Interest_Level: 9}]->(i)",
+            "MATCH (a:User {First_Name:'Amy'}),(i:Interest {Interest:'Volleyball'}) MERGE (a)-[r:INTERESTED_IN {Interest_Level: 6}]->(i)",
+            "MATCH (a:User {First_Name:'Amy'}),(i:Interest {Interest:'Swimming'}) MERGE (a)-[r:INTERESTED_IN {Interest_Level: 4}]->(i)",
+            "MATCH (a:User {First_Name:'Amy'}),(i:Interest {Interest:'Kart racing'}) MERGE (a)-[r:INTERESTED_IN {Interest_Level: 7}]->(i)",
+            "MATCH (a:User {First_Name:'Amy'}),(i:Interest {Interest:'Cycling'}) MERGE (a)-[r:INTERESTED_IN {Interest_Level: 4}]->(i)",
+            "MATCH (a:User {First_Name:'Paul'}),(i:Interest {Interest:'Weightlifting'}) MERGE (a)-[r:INTERESTED_IN {Interest_Level: 4}]->(i)",
+            "MATCH (a:User {First_Name:'Paul'}),(i:Interest {Interest:'Ultimate Frisbee'}) MERGE (a)-[r:INTERESTED_IN {Interest_Level: 6}]->(i)",
+            "MATCH (a:User {First_Name:'Paul'}),(i:Interest {Interest:'Martial Arts'}) MERGE (a)-[r:INTERESTED_IN {Interest_Level: 7}]->(i)",
+            "MATCH (a:User {First_Name:'Paul'}),(i:Interest {Interest:'Hiking'}) MERGE (a)-[r:INTERESTED_IN {Interest_Level: 2}]->(i)",
+            "MATCH (a:User {First_Name:'Paul'}),(i:Interest {Interest:'Basketball'}) MERGE (a)-[r:INTERESTED_IN {Interest_Level: 9}]->(i)"
         ]
 
     def setup(self):
@@ -157,15 +157,15 @@ class NeoDB():
     def get_all_users(self):
         query_string = """MATCH (u:User)-[]->(o:Organization)
                         RETURN u.First_Name as Name, u.Project as Project,
-                        o.name as OrgName, o.type as OrgType"""
+                        o.organization as OrgName, o.organization_type as OrgType"""
         return pd.DataFrame(self.graph.run(query_string).data()).to_string()
 
 
     def query_for_answer_1(self, username, company_name):
         query_string = """
         MATCH (u:User)-[r]->(s:Skill)<-[r1]-(u1:User)-[]-(o:Organization)-[r2]-(o1:Organization)
-        WHERE (u.First_Name='{}') and (o.name='{}' or o1.name='{}') and (r2.miles <=10)
-        WITH DISTINCT u1.First_Name as name, o.name as org_name, collect(s.name) as common_skills, sum(r1.level) as weight
+        WHERE (u.First_Name='{}') and (o.organization='{}' or o1.organization='{}') and (r2.miles <=10)
+        WITH DISTINCT u1.First_Name as First_Name, o.organization as organization, collect(s.Skill) as Common_Skills, sum(r1.Skill_Level) as weight
         ORDER BY weight DESC
-        RETURN name, org_name, common_skills, weight""".format(username, company_name, company_name)
+        RETURN First_Name, organization, Common_Skills, weight""".format(username, company_name, company_name)
         print( pd.DataFrame(self.graph.run(query_string).data()).to_string() )

@@ -116,18 +116,18 @@ class MongoDB():
                 },
                 "Project": "Backend",
                 "Skills": [
-                            { "Skill":"Python", "Skill Level":5},
+                            {"Skill":"Python", "Skill Level":5},
                             {"Skill":"Linux", "Skill Level":4},
                             {"Skill":"MySQL", "Skill Level": 3},
                             {"Skill":"Critical Thinking", "Skill Level":4},
                             {"Skill":"Java", "Skill Level":2}
                 ],
                 "Interests": [
-                    {"Skill":"Weightlifting", "Skill Level":4},
-                    {"Skill":"Martial Arts", "Skill Level":6},
-                    {"Skill":"Videogames", "Skill Level":7},
-                    {"Skill":"Basketball", "Skill Level":2},
-                    {"Skill":"Traveling", "Skill Level":9}
+                    {"Interest":"Weightlifting", "Interest Level":4},
+                    {"Interest":"Martial Arts", "Interest Level":6},
+                    {"Interest":"Videogames", "Interest Level":7},
+                    {"Interest":"Basketball", "Interest Level":2},
+                    {"Interest":"Traveling", "Interest Level":9}
 
                 ]
             },
@@ -145,7 +145,7 @@ class MongoDB():
                 },
                 "Project": "McAfee",
                 "Skills": [
-                            { "Skill":"Python", "Skill Level":4},
+                            {"Skill":"Python", "Skill Level":4},
                             {"Skill":"Linux", "Skill Level":5},
                             {"Skill":"BigData", "Skill Level":4},
                             {"Skill":"C++", "Skill Level":4},
@@ -174,11 +174,11 @@ class MongoDB():
                             {"Skill":"C++", "Skill Level":5}
                 ],
                 "Interests": [
-                    {"Skill":"Kart racing", "Skill Level":5},
-                    {"Skill":"Hiking", "Skill Level":3},
-                    {"Skill":"Bowling", "Skill Level":6},
-                    {"Skill":"Swimming", "Skill Level":8},
-                    {"Skill":"Traveling", "Skill Level":4}
+                    {"Interest":"Kart racing", "Interest Level":5},
+                    {"Interest":"Hiking", "Interest Level":3},
+                    {"Interest":"Bowling", "Interest Level":6},
+                    {"Interest":"Swimming", "Interest Level":8},
+                    {"Interest":"Traveling", "Interest Level":4}
 
                 ]
             },
@@ -203,11 +203,11 @@ class MongoDB():
                             {"Skill":"Software Development", "Skill Level":3}
                 ],
                 "Interests": [
-                    {"Hiking": 2},
-                    {"Ultimate Frisbee": 8},
-                    {"Martial Arts": 7},
-                    {"Swimming": 4},
-                    {"Bowling": 5}
+                    {"Interest":"Hiking", "Interest Level":2},
+                    {"Interest":"Ultimate Frisbee", "Interest Level":8},
+                    {"Interest":"Martial Arts", "Interest Level":7},
+                    {"Interest":"Swimming", "Interest Level":4},
+                    {"Interest":"Bowling", "Interest Level":5}
 
                 ]
             },
@@ -232,11 +232,11 @@ class MongoDB():
                             {"Skill":"Software Development", "Skill Level":5}
                 ],
                 "Interests": [
-                    {"Kart racing": 6},
-                    {"Ultimate Frisbee": 4},
-                    {"Basketball": 9},
-                    {"Weightlifting": 6},
-                    {"Videogames": 7}
+                    {"Interest":"Kart racing", "Interest Level":6},
+                    {"Interest":"Ultimate Frisbee", "Interest Level":4},
+                    {"Interest":"Basketball", "Interest Level":9},
+                    {"Interest":"Weightlifting", "Interest Level":6},
+                    {"Interest":"Videogames", "Interest Level":7}
 
                 ]
             },
@@ -261,11 +261,11 @@ class MongoDB():
                             {"Skill":"Accounting", "Skill Level":4}
                 ],
                 "Interests": [
-                    {"Bowling": 5},
-                    {"Traveling": 5},
-                    {"Swimming": 6},
-                    {"Volleyball": 8},
-                    {"Cycling": 6}
+                    {"Interest":"Bowling","Interest Level":5},
+                    {"Interest":"Traveling","Interest Level":5},
+                    {"Interest":"Swimming", "Interest Level":6},
+                    {"Interest":"Volleyball", "Interest Level":8},
+                    {"Interest":"Cycling", "Interest Level":6}
 
                 ]
             },
@@ -290,11 +290,11 @@ class MongoDB():
                             {"Skill":"Copywriting", "Skill Level":1}
                 ],
                 "Interests": [
-                    {"Gardening": 9},
-                    {"Volleyball": 6},
-                    {"Swimming": 4},
-                    {"Kart racing": 7},
-                    {"Cycling": 4}
+                    {"Interest":"Gardening", "Interest Level":9},
+                    {"Interest":"Volleyball", "Interest Level":6},
+                    {"Interest":"Swimming", "Interest Level":4},
+                    {"Interest":"Kart racing", "Interest Level":7},
+                    {"Interest":"Cycling", "Interest Level":4}
 
                 ]
             },
@@ -319,11 +319,11 @@ class MongoDB():
                             {"Skill":"Linux", "Skill Level":3}
                 ],
                 "Interests": [
-                    {"Weightlifting": 4},
-                    {"Ultimate Frisbee": 6},
-                    {"Martial Arts": 7},
-                    {"Hiking": 2},
-                    {"Basketball": 9}
+                    {"Interest":"Weightlifting", "Interest Level":4},
+                    {"Interest":"Ultimate Frisbee", "Interest Level":6},
+                    {"Interest":"Martial Arts", "Interest Level":7},
+                    {"Interest":"Hiking", "Interest Level":2},
+                    {"Interest":"Basketball", "Interest Level":9}
 
                 ]
             }
