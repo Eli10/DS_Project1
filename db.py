@@ -93,104 +93,114 @@ class MongoDB():
         return pd.DataFrame( list( self.user_collection.find({}, {"Name": 1}) ) )
 
     def answer_for_question2(self, name):
-        result = self.user_collection.find_one({"Name": name}, {"CurrentProject": 1})
-        return pd.DataFrame( list( self.user_collection.find({"CurrentProject": result["CurrentProject"]}, {"Name": 1, "Skills": 1})))
+        result = self.user_collection.find_one({"First Name": name}, {"Project": 1})
+        df =  pd.DataFrame( list( self.user_collection.find({"Project": result["Project"]}, {"Name": 1, "Skills": 1})))
+        fixed_df = df.drop(df[df["Name"] == name].index)
+        return fixed_df
 
     def setupv2(self):
         users = self.user_collection
 
         users.insert_many( [
             {
-                "Name": "Eli",
+                "First Name": "Eli",
+                "Last Name": "Augustin",
+                "User_Id": 1,
                 "Organization": {
-                    "OrgName": "SSC",
-                    "OrgType": "Company",
+                    "organization": "SSC",
+                    "organization_type": "Company",
                     "Distances": [
                         {"Hunter College": 8},
                         {"NSA": 20}
                     ]
                 },
-                "CurrentProject": "Backend",
+                "Project": "Backend",
                 "Skills": [
-                            { "Python": 5},
-                            {"Linux": 4},
-                            {"MySQL": 3},
-                            {"Critical Thinking": 4},
-                            {"Java": 2}
+                            { "Skill":"Python", "Skill Level":5},
+                            {"Skill":"Linux", "Skill Level":4},
+                            {"Skill":"MySQL", "Skill Level": 3},
+                            {"Skill":"Critical Thinking", "Skill Level":4},
+                            {"Skill":"Java", "Skill Level":2}
                 ],
                 "Interests": [
-                    {"Weightlifting": 4},
-                    {"Martial Arts": 6},
-                    {"Videogames": 7},
-                    {"Basketball": 2},
-                    {"Traveling": 9}
+                    {"Skill":"Weightlifting", "Skill Level":4},
+                    {"Skill":"Martial Arts", "Skill Level":6},
+                    {"Skill":"Videogames", "Skill Level":7},
+                    {"Skill":"Basketball", "Skill Level":2},
+                    {"Skill":"Traveling", "Skill Level":9}
 
                 ]
             },
             {
-                "Name": "Navid",
+                "First Name": "Navid",
+                "Last Name": "Saboori",
+                "User_Id": 2,
                 "Organization": {
-                    "OrgName": "Hunter College",
-                    "OrgType": "University",
+                    "organization": "Hunter College",
+                    "organization_type": "University",
                     "Distances": [
                         {"Hunter College": 1},
                         {"NSA": 20}
                     ]
                 },
-                "CurrentProject": "McAfee",
+                "Project": "McAfee",
                 "Skills": [
-                            { "Python": 4},
-                            {"Linux": 5},
-                            {"BigData": 4},
-                            {"C++": 4},
-                            {"McAfee": 5},
-                            {"Network":5}
+                            { "Skill":"Python", "Skill Level":4},
+                            {"Skill":"Linux", "Skill Level":5},
+                            {"Skill":"BigData", "Skill Level":4},
+                            {"Skill":"C++", "Skill Level":4},
+                            {"Skill":"McAfee", "Skill Level":5},
+                            {"Skill":"Network", "Skill Level":5}
                 ]
             },
             {
-                "Name": "Bob",
+                "First Name": "Bob",
+                "Last Name": "Mcintosh",
+                "User_Id": 3,
                 "Organization": {
-                    "OrgName": "SSC",
-                    "OrgType": "Company",
+                    "organization": "SSC",
+                    "organization_type": "Company",
                     "Distances": [
                         {"Hunter College": 8},
                         {"NSA": 20}
                     ]
                 },
-                "CurrentProject": "Backend",
+                "Project": "Backend",
                 "Skills": [
-                            { "Java": 5},
-                            {"Python": 4},
-                            {"MySQL": 4},
-                            {"Time Management": 2},
-                            {"C++": 5}
+                            {"Skill":"Java", "Skill Level":5},
+                            {"Skill":"Python", "Skill Level":4},
+                            {"Skill":"MySQL", "Skill Level":4},
+                            {"Skill":"Time Management", "Skill Level":2},
+                            {"Skill":"C++", "Skill Level":5}
                 ],
                 "Interests": [
-                    {"Kart racing": 5},
-                    {"Hiking": 3},
-                    {"Bowling": 6},
-                    {"Swimming": 8},
-                    {"Traveling": 4}
+                    {"Skill":"Kart racing", "Skill Level":5},
+                    {"Skill":"Hiking", "Skill Level":3},
+                    {"Skill":"Bowling", "Skill Level":6},
+                    {"Skill":"Swimming", "Skill Level":8},
+                    {"Skill":"Traveling", "Skill Level":4}
 
                 ]
             },
             {
-                "Name": "Sandy",
+                "First Name": "Sandy",
+                "Last Name": "Anderson",
+                "User_Id": 4,
                 "Organization": {
-                    "OrgName": "Hunter College",
-                    "OrgType": "University",
+                    "organization": "Hunter College",
+                    "organization_type": "University",
                     "Distances": [
                         {"SSC": 8},
                         {"NSA": 20}
                     ]
                 },
-                "CurrentProject": "Capstone",
+                "Project": "Capstone",
                 "Skills": [
-                            { "Web Development": 1},
-                            {"Networking": 5},
-                            {"MySQL": 5},
-                            {"Communication": 4},
-                            {"Software Development": 3}
+                            {"Skill":"Web Development", "Skill Level":1},
+                            {"Skill":"Networking", "Skill Level":5},
+                            {"Skill":"MySQL", "Skill Level":5},
+                            {"Skill":"Communication", "Skill Level":4},
+                            {"Skill":"Software Development", "Skill Level":3}
                 ],
                 "Interests": [
                     {"Hiking": 2},
@@ -202,22 +212,24 @@ class MongoDB():
                 ]
             },
             {
-                "Name": "Jake",
+                "First Name": "Jake",
+                "Last Name": "Ryan",
+                "User_Id": 5,
                 "Organization": {
-                    "OrgName": "Hunter College",
-                    "OrgType": "University",
+                    "organization": "Hunter College",
+                    "organization_type": "University",
                     "Distances": [
                         {"SSC": 8},
                         {"NSA": 20}
                     ]
                 },
-                "CurrentProject": "Capstone",
+                "Project": "Capstone",
                 "Skills": [
-                            { "Web Development": 3},
-                            {"Networking": 2},
-                            {"MySQL": 2},
-                            {"Communication": 4},
-                            {"Software Development": 5}
+                            {"Skill":"Web Development", "Skill Level":3},
+                            {"Skill":"Networking", "Skill Level":2},
+                            {"Skill":"MySQL", "Skill Level":2},
+                            {"Skill":"Communication", "Skill Level":4},
+                            {"Skill":"Software Development", "Skill Level":5}
                 ],
                 "Interests": [
                     {"Kart racing": 6},
@@ -229,22 +241,24 @@ class MongoDB():
                 ]
             },
             {
-                "Name": "Ruby",
+                "First Name": "Ruby",
+                "Last Name": "Rodriguez",
+                "User_Id": 6,
                 "Organization": {
-                    "OrgName": "SSC",
-                    "OrgType": "Company",
+                    "organization": "SSC",
+                    "organization_type": "Company",
                     "Distances": [
                         {"Hunter College": 8},
                         {"NSA": 20}
                     ]
                 },
-                "CurrentProject": "Capstone",
+                "Project": "Capstone",
                 "Skills": [
-                            { "Web Development": 5},
-                            {"Javascript": 5},
-                            {"MySQL": 3},
-                            {"HTML": 1},
-                            {"Accounting": 4}
+                            {"Skill":"Web Development", "Skill Level":5},
+                            {"Skill":"Javascript", "Skill Level":5},
+                            {"Skill":"MySQL", "Skill Level":3},
+                            {"Skill":"HTML", "Skill Level":1},
+                            {"Skill":"Accounting", "Skill Level":4}
                 ],
                 "Interests": [
                     {"Bowling": 5},
@@ -256,22 +270,24 @@ class MongoDB():
                 ]
             },
             {
-                "Name": "Amy",
+                "First Name": "Amy",
+                "Last Name": "Pascal",
+                "User_Id": 7,
                 "Organization": {
-                    "OrgName": "NSA",
-                    "OrgType": "Company",
+                    "organization": "NSA",
+                    "organization_type": "Company",
                     "Distances": [
                         {"Hunter College": 20},
                         {"NSA": 20}
                     ]
                 },
-                "CurrentProject": "Capstone",
+                "Project": "Capstone",
                 "Skills": [
-                            { "Web Development": 3},
-                            {"Information Security": 2},
-                            {"MySQL": 2},
-                            {"C++": 3},
-                            {"Copywriting": 1}
+                            {"Skill":"Web Development", "Skill Level":3},
+                            {"Skill":"Information Security", "Skill Level":2},
+                            {"Skill":"MySQL", "Skill Level":2},
+                            {"Skill":"C++", "Skill Level":3},
+                            {"Skill":"Copywriting", "Skill Level":1}
                 ],
                 "Interests": [
                     {"Gardening": 9},
@@ -283,22 +299,24 @@ class MongoDB():
                 ]
             },
             {
-                "Name": "Paul",
+                "First Name": "Paul",
+                "Last Name": "Wade",
+                "User_Id": 8,
                 "Organization": {
-                    "OrgName": "NSA",
-                    "OrgType": "Company",
+                    "organization": "NSA",
+                    "organization_type": "Company",
                     "Distances": [
                         {"Hunter College": 20},
                         {"NSA": 20}
                     ]
                 },
-                "CurrentProject": "Capstone",
+                "Project": "Capstone",
                 "Skills": [
-                            { "Information Security": 5},
-                            {"C++": 3},
-                            {"Foreign Languages": 2},
-                            {"MySQL": 5},
-                            {"Linux": 3}
+                            {"Skill":"Information Security", "Skill Level":5},
+                            {"Skill":"C++", "Skill Level":3},
+                            {"Skill":"Foreign Languages", "Skill Level":2},
+                            {"Skill":"MySQL", "Skill Level":5},
+                            {"Skill":"Linux", "Skill Level":3}
                 ],
                 "Interests": [
                     {"Weightlifting": 4},
