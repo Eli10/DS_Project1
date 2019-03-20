@@ -128,6 +128,26 @@ class MongoDB():
                 ]
             },
             {
+                "Name": "Navid",
+                "Organization": {
+                    "OrgName": "Hunter College",
+                    "OrgType": "University",
+                    "Distances": [
+                        {"Hunter College": 1},
+                        {"NSA": 20}
+                    ]
+                },
+                "CurrentProject": "McAfee",
+                "Skills": [
+                            { "Python": 4},
+                            {"Linux": 5},
+                            {"BigData": 4},
+                            {"C++": 4},
+                            {"McAfee": 5},
+                            {"Network":5}
+                ]
+            },
+            {
                 "Name": "Bob",
                 "Organization": {
                     "OrgName": "SSC",

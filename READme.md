@@ -82,8 +82,13 @@ db.getCollection('users').find({"CurrentProject": "Back-end"}, {"FirstName": 1, 
 
 
 # Installation
+- Install and run pyhton3 and pip or pip3
+- Install and start neo4j and mongodb
 
-Run the Makefile or the following commands
+Run the Makefile 
+- make run
+
+or the following commands
 - pip3 install pymongo
 - pip3 install pandas
 - pip3 install neo4j

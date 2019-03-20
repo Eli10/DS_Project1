@@ -22,19 +22,20 @@ class Menu():
         print("* 5 - Query Neo4j                 **")
         print("* 6 - Query History               **")
         print("* 7 - Return to Main Menu         **")
+        print("* 8 - Quit the APP                **")
         print("************************************")
         print("NOTE: Please run Option 1 before any others")
 
 
     def parse_choice(self, choice):
-        if(choice=="1"):
+        if(choice=="1"): #todo: show all the user
             self.neo_db.setup()
             self.mongo_db.setupv2()
             input("Press Enter to continue...")
         if(choice=="2"):
-            self.get_user_list()
+            self.get_user_list() 
         if(choice=="3"):
-            print(self.mongo_db.return_users())
+            print(self.mongo_db.return_users()) #todo: return each user once
             user = input("\nSelect User you would like to find \ntrusted colleagues-of-colleagues \nwith one or more interests: ")
             print(self.mongo_db.answer_for_question2(user))
             input("Press Enter to continue...")
@@ -51,7 +52,10 @@ class Menu():
             print(self.query_history)
             pass
         if(choice=="7"):
+            print("Import CSV file ...") #todo: Working -Ns
             pass
+        if(choice=="8"):
+            quit()
 
     def get_user_list(self):
         print( self.neo_db.get_all_users() )
