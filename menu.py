@@ -41,11 +41,11 @@ class Menu():
             input("Press Enter to continue...")
             pass
         if(choice=="4"):
-            query = input("Write Query: ") #todo: Query for user info Neo4j ... Working -Ns
+            query = input("Write Query for MongoDB: ")
             self.query_history.append(query)
             pass
         if(choice=="5"):
-            query = input("Write Query: ") #todo: Query for user info MongoDB ... Working -Ns
+            query = input("Write Query for Neo4j: ")
             self.query_history.append(query)
             pass
         if(choice=="6"):

@@ -28,10 +28,14 @@ Organization
 Skil
 - name
 
+Interest
+- name
+
 Relations
 - User WORKS_FOR Organization
 - Orgnization DISTANCE Organization
 - User SKILLED_In Skill (level property)
+- User INTERESTED_IN Interest (level property)
 
 
 # Menu Options
