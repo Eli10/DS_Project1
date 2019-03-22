@@ -1,6 +1,8 @@
 from pymongo import MongoClient
 import pandas as pd
-
+import sys 
+import json
+import os # Import file
 
 class MongoDB():
 
@@ -8,7 +10,19 @@ class MongoDB():
         self.client = MongoClient('127.0.0.1', 27017)
         self.db = self.client['collaboration_net_db']
         self.user_collection = self.db['users']
+    
+    def import_content(self, filepath): #Import CSV
+        mng_client = MongoClient('localhost', 27017)
+        mng_db = mng_client['collaboration_net_db'] 
+        collection_name = 'users' 
+        db_cm = mng_db[collection_name]
+        cdir = os.path.dirname(__file__)
+        file_res = os.path.join(cdir, filepath)
 
+        data = pd.read_csv(file_res)
+        data_json = json.loads(data.to_json(orient='records'))
+       # db_cm.remove()
+        db_cm.insert(data_json)
     # def setup(self):
     #     users = self.user_collection
 
