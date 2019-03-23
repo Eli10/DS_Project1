@@ -4,6 +4,7 @@ import os
 
 
 
+
 class Menu():
 
     def __init__(self):
@@ -21,7 +22,7 @@ class Menu():
         print("* 4 - Query MongoDB               **")
         print("* 5 - Query Neo4j                 **")
         print("* 6 - Query History               **")
-        print("* 7 - Return to Main Menu         **")
+        print("* 7 - Import CSV file to DBs      **")
         print("* 8 - Quit the APP                **")
         print("************************************")
         print("NOTE: Please run Option 1 before any others")
@@ -52,7 +53,11 @@ class Menu():
             print(self.query_history)
             pass
         if(choice=="7"):
-            print("Import CSV file ...") #todo: Working -Ns
+            print("Import CSV file ... \n") 
+            print("For example: /home/Navid/Documents/BigData/project1_sample/user.csv\n")
+            filepath = input ("enter file path:")
+            self.mongo_db.import_content(filepath)
+
             pass
         if(choice=="8"):
             quit()
