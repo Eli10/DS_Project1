@@ -1,6 +1,6 @@
 from pymongo import MongoClient
 import pandas as pd
-import sys 
+import sys
 import json
 import os # Import file
 
@@ -10,11 +10,11 @@ class MongoDB():
         self.client = MongoClient('127.0.0.1', 27017)
         self.db = self.client['collaboration_net_db']
         self.user_collection = self.db['users']
-    
+
     def import_content(self, filepath): #Import CSV
         mng_client = MongoClient('localhost', 27017)
-        mng_db = mng_client['collaboration_net_db'] 
-        collection_name = 'users' 
+        mng_db = mng_client['collaboration_net_db']
+        collection_name = 'users'
         db_cm = mng_db[collection_name]
         cdir = os.path.dirname(__file__)
         file_res = os.path.join(cdir, filepath)
@@ -104,12 +104,12 @@ class MongoDB():
     #     ] )
 
     def return_users(self):
-        return pd.DataFrame( list( self.user_collection.find({}, {"Name": 1}) ) )
+        return pd.DataFrame( list( self.user_collection.find({}, {"First Name": 1}) ) )
 
     def answer_for_question2(self, name):
         result = self.user_collection.find_one({"First Name": name}, {"Project": 1})
-        df =  pd.DataFrame( list( self.user_collection.find({"Project": result["Project"]}, {"Name": 1, "Skills": 1})))
-        fixed_df = df.drop(df[df["Name"] == name].index)
+        df =  pd.DataFrame( list( self.user_collection.find({"Project": result["Project"]}, {"First Name": 1, "Skills": 1})))
+        fixed_df = df.drop(df[df["First Name"] == name].index)
         return fixed_df
 
     def setupv2(self):

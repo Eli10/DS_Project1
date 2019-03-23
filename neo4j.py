@@ -12,7 +12,7 @@ class NeoDB():
             "CREATE (u5:User {First_Name:'Jake', Last_Name:'Ryan', Project: 'Capstone', User_Id:5})",
             "CREATE (u3:User {First_Name:'Ruby', Last_Name:'Rodriguez', Project:'Frontend', User_Id:6})",
             "CREATE (u6:User {First_Name:'Amy', Last_Name:'Pascal', Project: 'Data Discovery', User_Id:7})",
-            "CREATE (u7:User {First_Name:'Amy', Last_Name:'Pascal',  Project: 'Data Discovery', User_Id:8})",
+            "CREATE (u7:User {First_Name:'Navid', Last_Name:'Saboori',  Project: 'Data Discovery', User_Id:8})",
             "CREATE (u9:User {First_Name:'Paul', Last_Name:'Wade', ProjectProject: 'Backend', User_Id:2})",
             "CREATE (o1:Organization {organization: 'Hunter College', organization_type:'University'})",
             "CREATE (o2:Organization {organization: 'SSC', organization_type:'Company'})",
@@ -92,7 +92,7 @@ class NeoDB():
             "MATCH (a:User {First_Name:'Paul'}),(b:Skill {Skill:'Foreign Languages'}) MERGE (a)-[r:SKILLED_IN {Skill_Level: 2}]->(b)",
             "MATCH (a:User {First_Name:'Paul'}),(b:Skill {Skill:'MySQL'}) MERGE (a)-[r:SKILLED_IN {Skill_Level: 5}]->(b)",
             "MATCH (a:User {First_Name:'Paul'}),(b:Skill {Skill:'Linux'}) MERGE (a)-[r:SKILLED_IN {Skill_Level: 3}]->(b)",
-            
+
             "MATCH (a:User {First_Name:'Navid'}),(b:Skill {Skill:'Python'}) MERGE (a)-[r:SKILLED_IN {Skill_Level: 5}]->(b)",
             "MATCH (a:User {First_Name:'Navid'}),(b:Skill {Skill:'Linux'}) MERGE (a)-[r:SKILLED_IN {Skill_Level: 4}]->(b)",
             "MATCH (a:User {First_Name:'Navid'}),(b:Skill {Skill:'McAfee'}) MERGE (a)-[r:SKILLED_IN {Skill_Level: 5}]->(b)",
