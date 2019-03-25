@@ -59,7 +59,7 @@ db.getCollection('users').find({$or: [{"Organization.OrgType": "University"}, {"
 var my_skills = ["Python", "Go"]
 
 db.getCollection('users').find({$or: [{"Organization.OrgType": "University"}, {"Organization.Distances.Government": {$lte: 10}  }, {"Organization.Distances.Company": {$lte: 10}  } ]}).forEach(function(user) {
-    
+
     var user_skills = user.Skills;
     //print(user_skills);
     var total_weight = 0;
@@ -71,9 +71,9 @@ db.getCollection('users').find({$or: [{"Organization.OrgType": "University"}, {"
     });
     //print(total_weight)
     //print(user_skill_list)
-    
+
     print( user.FirstName, user.Organization.OrgName, total_weight);
-    
+
 });
 
 
@@ -85,10 +85,56 @@ db.getCollection('users').find({"CurrentProject": "Back-end"}, {"FirstName": 1, 
 - Install and run pyhton3 and pip or pip3
 - Install and start neo4j and mongodb
 
-Run the Makefile 
+Run the Makefile
 - make run
 
 or the following commands
 - pip3 install pymongo
 - pip3 install pandas
 - pip3 install neo4j
+
+
+# Neo4j DB Dump Queries
+
+LOAD CSV WITH HEADERS FROM 'file:///project1_test/user.csv' AS line
+MERGE (:user { User_id: line.User_id, name: line.`First name`, lastname: line.`Last name`})
+
+LOAD CSV WITH HEADERS FROM 'file:///project1_test/project.csv' AS line
+MATCH (u:user {User_id: line.User_id})
+MERGE (p:project { User_id: line.User_id, Project: line.Project})
+MERGE (u)-[:WORKING_ON]->(p)
+
+
+LOAD CSV WITH HEADERS FROM 'file:///project1_test/skill.csv' AS line
+MATCH (u:user {User_id: line.User_Id})
+MERGE (s:skill { Skill: line.`Skill `})
+MERGE (u)-[:SKILLED_ON {Skill_level: toInteger(line.`Skill level`) }]->(s)
+
+
+LOAD CSV WITH HEADERS FROM 'file:///project1_test/interest.csv' AS line
+MATCH (u:user {User_id: line.User_id})
+MERGE (i:interest {Interest: line.`Interest` })
+MERGE (u)-[:INTERESTED_IN {InterestLevel: toInteger(line.`Interest level`)} ]->(i)
+
+
+LOAD CSV WITH HEADERS FROM 'file:///project1_test/organization.csv' AS line
+MATCH (u:user {User_id: line.User_id})
+MERGE (o:organization {organization: line.`organization`, organization_type: line.`organization type`})
+MERGE (u)-[:WORKS_FOR]->(o)
+
+LOAD CSV WITH HEADERS FROM 'file:///project1_test/distance.csv' AS line
+MATCH (o1:organization {organization: line.`Organization 1`})
+MATCH (o2:organization {organization: line.`Organization 2`})
+MERGE (o1)-[:DISTANCE {Distance: toInteger(line.Distance)}]->(o2)
+
+
+MATCH (u:user)-[]-(s:skill)-[]-(u1:user)-[]-(o:organization)-[r2]-(o1:organization)
+WHERE u1.name='F12' and (o.organization="O1" or (o1.organization="O1" and r2.Distance <= 10) )
+RETURN u, u1, s
+
+
+MATCH (u:user)-[r1]-(s:skill)-[]-(u1:user)-[]-(o:organization)-[r2]-(o1:organization)
+WHERE u1.name='F12' and (o.organization="O1" or (o1.organization="O1" and r2.Distance <= 10) )
+WITH DISTINCT u.name as name, o.organization as organization, collect(s.Skill) as Common_Skills, sum(r1.Skill_level) as weight
+ORDER BY weight DESC
+RETURN name, organization, Common_Skills, weight
