@@ -12,7 +12,7 @@ class MongoDB():
         self.user_collection = self.db['users']
 
     def import_content(self, filepath): #Import CSV
-        mng_client = MongoClient('localhost', 27017)
+        mng_client = MongoClient('127.0.0.1', 27017)
         mng_db = mng_client['collaboration_net_db']
         collection_name = 'users'
         db_cm = mng_db[collection_name]
@@ -104,12 +104,14 @@ class MongoDB():
     #     ] )
 
     def return_users(self):
-        return pd.DataFrame( list( self.user_collection.find({}, {"First Name": 1}) ) )
+        return pd.DataFrame( list( self.user_collection.find({"First name": {"$exists" : "true"} }, {"First name": 1, "User_id": 1}) ) )
 
-    def answer_for_question2(self, name):
-        result = self.user_collection.find_one({"First Name": name}, {"Project": 1})
-        df =  pd.DataFrame( list( self.user_collection.find({"Project": result["Project"]}, {"First Name": 1, "Skills": 1})))
-        fixed_df = df.drop(df[df["First Name"] == name].index)
+    def answer_for_question2(self, user_id):
+        result = self.user_collection.find({"User_id": int(user_id), "Project": {"$exists" : "true"} }, {"Project": 1})
+        project_list = [ r["Project"] for r in result ]
+        df =  pd.DataFrame( list( self.user_collection.find({ "$or": [{ "Project": project_list[0]}] , "User_id": {"$exists" : "true"} } , {"User_id": 1})))
+        # return df
+        fixed_df = df.drop(df[df["User_id"] == int(user_id)].index)
         return fixed_df
 
     def setupv2(self):
